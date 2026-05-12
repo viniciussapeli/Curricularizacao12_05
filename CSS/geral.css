@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 16px;
+}
+
+header {
+    align-items: center;
+    background-color: rgb(215, 255, 196);
+    justify-content: space-between;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    font-size: 1em;
+    text-decoration: none;
+    padding: 7px;
+}
+
+header a {
+    font-size: 50px;
+    color: black;
+}
+
+header p{
+    font-size: 50px;
+    padding-left: 5 px;
+}
+
+header div {
+    display: flex;
+}
