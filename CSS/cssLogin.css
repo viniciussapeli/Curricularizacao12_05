@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../Images/backgroundMenu.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(5px);
+    transform: scale(1.1);
+    z-index: -1;
+}
+header div{
+    margin: auto;
+    align-items: center;
+    background-color: rgb(215, 255, 196);
+    justify-content: space-between;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    font-size:xx-large;
+    text-decoration: none;
+    padding: 0.3% 2% 0.3% 2%;
+}
+#Login{
+    font-size:120%;
+    text-align: center;
+    flex-direction: column;
+    
+}
+#LOGIN{
+    margin: 2%;
+}
+#ESCOLA{
+    margin: 2%;
+}
+#IDADE{
+    margin: 2%;
+}
+#BemVindo{
+    font-size:200%;
+    justify-content: center;
+    display:flex
+}
