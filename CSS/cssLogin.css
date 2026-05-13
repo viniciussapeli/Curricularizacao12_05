@@ -29,23 +29,42 @@ header div{
     text-decoration: none;
     padding: 0.3% 2% 0.3% 2%;
 }
+main{
+    margin: 2% 35% 2% 35%;
+}
 #Login{
     font-size:120%;
     text-align: center;
     flex-direction: column;
-    
+    background-color: white;
+    border-radius: 5px;
+    padding: 1%;
 }
+
 #LOGIN{
-    margin: 2%;
+    padding: 2%;
 }
+
 #ESCOLA{
-    margin: 2%;
+    padding: 2%;
 }
+
 #IDADE{
-    margin: 2%;
+    padding: 2%;
 }
+
 #BemVindo{
     font-size:200%;
     justify-content: center;
-    display:flex
+}
+.playButton{
+    margin: 1% 15% 1% 15%;
+    padding: 1.5%;
+    background-color: rgb(144, 205, 233);
+    font-size: 150%;
+    border-radius: 7px;
+}
+.playButton a{
+    text-decoration: none;
+    color: red;
 }
