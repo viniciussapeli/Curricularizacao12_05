@@ -29,13 +29,17 @@
         <div class="pergunta">
             <img class="image" src="../Images/bandeiraBrusque.png">
             <div style="display: flex">
-                <div style="background: rgb(255, 0, 0);" class="card-cores"></div>
-                <div style="background: rgb(255, 251, 0);" class="card-cores"></div>
-                <div style="background: rgb(25, 0, 255);" class="card-cores"></div>
-                <div style="background: rgb(51, 255, 0);" class="card-cores"></div>
+                <button onclick="irTela()" style="background: rgb(255, 0, 0);" class="card-cores"></button>
+                <button onclick="irTela()" style="background: rgb(255, 251, 0);" class="card-cores"></button>
+                <button onclick="irTela()" style="background: rgb(25, 0, 255);" class="card-cores"></button>
+                <button onclick="irTela()" style="background: rgb(51, 255, 0);" class="card-cores"></button>
             </div>
         </div>
     </div>
-
+<script>
+function irTela(){
+    window.location.href = "2pergunta.html";
+}
+</script>
 </body>
 </html>
