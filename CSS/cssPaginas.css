@@ -1,13 +1,6 @@
-        /*body{
-            margin: 0;
-            overflow: hidden;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-        }*/
+        body{
+            overflow: hidden;  
+        }
 
         .background{
             position: fixed;
@@ -27,7 +20,7 @@
         .card{
             height: 90%;
             width: 40%;
-            padding: 30px;
+            padding: 1%;
             margin: 3% auto;
             background: white;
             border-radius: 20px;
