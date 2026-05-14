@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5° Pergunta</title>
-
     <link rel="stylesheet" href="../CSS/geral.css">
+    <link rel="stylesheet" href="../CSS/cssPadraoPerguntas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../CSS/cssTelaInicial.css">
-    <link rel="stylesheet" href="../CSS/cssPaginas.css">
+    
+    <title>5° Pergunta</title>
 </head>
 <body>
     <header>
@@ -23,23 +22,24 @@
     </header>
 
     <div class="background"></div>
+
     <div class="card">
         <div class="title">
-            <h1>Brusque está localizada no estado: </h1>
+            <h1>Brusque está localizada no estado ?</h1>
         </div>
         <div class="pergunta">
-            <img class="image" src="../Images/alemanha.png">
+            <img class="image" src="../Images/Brasil - estados.png" alt="fenarreco">
             <div style="display: flex">
-                <button></button>
-                <button></button>
-                <button></button>
-                <button></button>
+                <button onclick="irTela()">SANTA CATARINA</button>
+                <button onclick="irTela()">BAHIA</button>
+                <button onclick="irTela()">MATO GROSSO</button>
+                <button onclick="irTela()">ACRE</button>
             </div>
         </div>
     </div>
 <script>
 function irTela(){
-    window.location.href = "4pergunta.html";
+    window.location.href = "6pergunta.html";
 }
 </script>
 </body>
