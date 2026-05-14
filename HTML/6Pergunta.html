@@ -32,15 +32,19 @@
         </div>
         <div class="pergunta">
             <div class="imagens" style="margin: 4%;">
-                <button  onclick="irTela()"><img src="../Images/P6/MarrecoRecheado.png" alt="bandeira da Alemanha"></button>
-                <button  onclick="irTela()"><img src="../Images/P6/Sushi.jpg" alt="bandeira da França"></button>
-                <button  onclick="irTela()"><img src="../Images/P6/sopaBeterraba.jpg" alt="bandeira do Japão"></button>
-                <button  onclick="irTela()"><img src="../Images/P6/Hamburger.jpg" alt="bandeira da Argentina"></button>
+                <button  onclick="irTela(1)"><img src="../Images/P6/MarrecoRecheado.png" alt="bandeira da Alemanha"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P6/Sushi.jpg" alt="bandeira da França"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P6/sopaBeterraba.jpg" alt="bandeira do Japão"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P6/Hamburger.jpg" alt="bandeira da Argentina"></button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+function irTela(resposta){
+     let nota = localStorage.getItem("nota");
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "7pergunta.html";
 }
 </script>

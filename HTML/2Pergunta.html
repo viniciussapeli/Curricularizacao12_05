@@ -30,15 +30,19 @@
         <div class="respostas">
             <img class="image" src="../Images/P2/Fenarreco.jpg" alt="fenarreco">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Janeiro</button>
-                <button class="respostas" onclick="irTela()">Outubro</button>
-                <button class="respostas"  onclick="irTela()">Abril</button>
-                <button class="respostas" onclick="irTela()">Dezembro</button>
+                <button class="respostas" onclick="irTela(0)">Janeiro</button>
+                <button class="respostas" onclick="irTela(1)">Outubro</button>
+                <button class="respostas"  onclick="irTela(0)">Abril</button>
+                <button class="respostas" onclick="irTela(0)">Dezembro</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+function irTela(resposta){
+    let nota = localStorage.getItem("nota");
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "3pergunta.html";
 }
 </script>

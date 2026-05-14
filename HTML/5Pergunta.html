@@ -30,15 +30,19 @@
         <div class="respostas">
             <img class="image" src="../Images/P5/Brasil - estados.png" alt="fenarreco">
             <div style="display: flex">
-                <button class="respostas" class="respostas" onclick="irTela()">SANTA CATARINA</button>
-                <button class="respostas"onclick="irTela()">BAHIA</button>
-                <button class="respostas" onclick="irTela()">MATO GROSSO</button>
-                <button class="respostas" onclick="irTela()">ACRE</button>
+                <button class="respostas" class="respostas" onclick="irTela(1)">SANTA CATARINA</button>
+                <button class="respostas"onclick="irTela(0)">BAHIA</button>
+                <button class="respostas" onclick="irTela(0)">MATO GROSSO</button>
+                <button class="respostas" onclick="irTela(0)">ACRE</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+function irTela(resposta){
+    let nota = localStorage.getItem("nota");
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "6pergunta.html";
 }
 </script>
