@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/geral.css">
-    <link rel="stylesheet" href="../CSS/cssPaginas.css">
+    <link rel="stylesheet" href="../CSS/cssPadraoPerguntas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <title>2° Pergunta</title>
@@ -22,20 +22,25 @@
     </header>
 
     <div class="background"></div>
+
     <div class="card">
         <div class="title">
             <h1>A Fenarreco, festa de típica da região, é celebrada em qual mês? </h1>
         </div>
         <div class="pergunta">
             <img class="image" src="../Images/Fenarreco.jpg" alt="fenarreco">
-            <div style="display: flex">
-                <div><p>Janeiro</p>
-                <p>Outubro</p></div>
-                <div><p>Abril</p>
-                <p>Dezembro</p></div>
+            <div class="respostas">
+                <button onclick="irTela()" class="card-cores"><b>JANEIRO</b></button>
+                <button onclick="irTela()" class="card-cores"><b>OUTUBRO</b></button>
+                <button onclick="irTela()" class="card-cores"><b>ABRIL</b></button>
+                <button onclick="irTela()" class="card-cores"><b>DEZEMBRO</b></button>
             </div>
         </div>
     </div>
-
+<script>
+function irTela(){
+    window.location.href = "2pergunta.html";
+}
+</script>
 </body>
 </html>
