@@ -5,22 +5,28 @@
     gap: 40px; 
 }
 
-.imagens{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px; 
-}
-
 .imagens button{
     border: none;
     background: transparent;
     cursor: pointer;
 }
 
+.imagens{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
 .imagens img{
     width: 180px;
     height: 120px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.imagens img:hover{
+    transform: scale(1.05);
 }

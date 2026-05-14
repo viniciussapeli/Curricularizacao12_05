@@ -27,18 +27,22 @@
         <div class="title">
             <h1>A Fenarreco, festa de típica da região, é celebrada em qual mês? </h1>
         </div>
-        <div class="pergunta">
+        <div class="respostas">
             <img class="image" src="../Images/P2/Fenarreco.jpg" alt="fenarreco">
             <div style="display: flex">
-                <button onclick="irTela()">Janeiro</button>
-                <button onclick="irTela()">Outubro</button>
-                <button onclick="irTela()">Abril</button>
-                <button onclick="irTela()">Dezembro</button>
+                <button class="respostas" onclick="irTela(0)">Janeiro</button>
+                <button class="respostas" onclick="irTela(1)">Outubro</button>
+                <button class="respostas"  onclick="irTela(0)">Abril</button>
+                <button class="respostas" onclick="irTela(0)">Dezembro</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+function irTela(resposta){
+    let nota = localStorage.getItem("nota");
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "3pergunta.html";
 }
 </script>
