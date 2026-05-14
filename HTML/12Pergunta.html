@@ -30,17 +30,28 @@
         <div class="respostas">
             <img class="image" src="../Images/P12/mapaCidadesBrusque.png" alt="fenarreco">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Nova Trento</button>
-                <button class="respostas" onclick="irTela()">Guabiruba</button>
-                <button class="respostas" onclick="irTela()">Canelinha</button>
-                <button class="respostas" onclick="irTela()">Xique-Xique</button>
+                <button class="respostas" onclick="irTela(0)">Nova Trento</button>
+                <button class="respostas" onclick="irTela(0)">Guabiruba</button>
+                <button class="respostas" onclick="irTela(0)">Canelinha</button>
+                <button class="respostas" onclick="irTela(1)">Xique-Xique</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+    let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "13pergunta.html";
 }
+function mostrarNota(){
+
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>

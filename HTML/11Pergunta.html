@@ -30,17 +30,28 @@
         <div class="respostas">
             <img class="image" src="../Images/P11/BrusqueVelha2.jpg" alt="fenarreco">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Uma colônia</button>
-                <button class="respostas" onclick="irTela()">Um estado</button>
-                <button class="respostas" onclick="irTela()">Uma vila</button>
-                <button class="respostas" onclick="irTela()">Um país</button>
+                <button class="respostas" onclick="irTela(0)">Uma colônia</button>
+                <button class="respostas" onclick="irTela(0)">Um estado</button>
+                <button class="respostas" onclick="irTela(1)">Uma vila</button>
+                <button class="respostas" onclick="irTela(0)">Um país</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+    let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "12pergunta.html";
 }
+function mostrarNota(){
+
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>
