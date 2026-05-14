@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4° Pergunta</title>
+
     <link rel="stylesheet" href="../CSS/geral.css">
-    <link rel="stylesheet" href="../CSS/cssPadraoPerguntas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
-    <title>7° Pergunta</title>
+    <link rel="stylesheet" href="../CSS/cssTelaInicial.css">
+    <link rel="stylesheet" href="../CSS/cssPaginas.css">
+    <link rel="stylesheet" href="../CSS/cssBandeiras.css">
 </head>
 <body>
     <header>
@@ -22,23 +24,25 @@
     </header>
 
     <div class="background"></div>
-
     <div class="card">
         <div class="title">
-            <h1>Pergunta 7</h1>
+            <h1 style="padding: 2%;">Clique na imagem do local que não está presente em Brusque </h1>
         </div>
-        <div class="respostas">
-            <img class="image" src="" alt="fenarreco">
-            <div style="display: flex">
-                <button class="respostas" onclick="irTela()">???</button>
-                <button class="respostas" onclick="irTela()">?.?</button>
-                <button class="respostas" onclick="irTela()">..?</button>
-                <button class="respostas" onclick="irTela()">.?.</button>
+        <div class="pergunta">
+            <div class="imagens" style="margin: 4%;">
+                <button  onclick="irTela(1)"><img src="../Images/P7/escultura.jpg" alt="bandeira da Alemanha"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P7/FenarrecoPraça.jpg" alt="bandeira da França"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P7/inglaterra.jpg" alt="bandeira do Japão"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P7/MorroRosário.jpg" alt="bandeira da Argentina"></button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+function irTela(resposta){
+    let nota = localStorage.getItem("nota");
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "8pergunta.html";
 }
 </script>
