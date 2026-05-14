@@ -5,20 +5,20 @@
     gap: 40px; 
 }
 
-.bandeiras{
+.imagens{
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 20px; 
 }
 
-.bandeiras button{
+.imagens button{
     border: none;
     background: transparent;
     cursor: pointer;
 }
 
-.bandeiras img{
+.imagens img{
     width: 180px;
     height: 120px;
     object-fit: cover;
