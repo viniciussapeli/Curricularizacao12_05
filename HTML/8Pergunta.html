@@ -30,15 +30,19 @@
         <div class="respostas">
             <img class="image" src="../Images/P8/bandeiras-de-diferentes-paises-em-forma-de-bolha-do-discurso_23-2147862139.avif" alt="Países Colonizadores">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Alemães, Italianos e Poloneses</button>
-                <button class="respostas" onclick="irTela()">Alemães, Italianos e Portugueses</button>
-                <button class="respostas" onclick="irTela()">Russos, Indianos e Árabes</button>
-                <button class="respostas" onclick="irTela()">Alemães, Poloneses e Africanos</button>
+                <button class="respostas" onclick="irTela(0)">Alemães, Italianos e Poloneses</button>
+                <button class="respostas" onclick="irTela(1)">Alemães, Italianos e Portugueses</button>
+                <button class="respostas" onclick="irTela(0)">Russos, Indianos e Árabes</button>
+                <button class="respostas" onclick="irTela(0)">Alemães, Poloneses e Africanos</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+    let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "9pergunta.html";
 }
 function mostrarNota(){

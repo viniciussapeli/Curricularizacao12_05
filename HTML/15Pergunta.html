@@ -40,14 +40,16 @@
 <script>
    let nota = Number(localStorage.getItem("nota")) || 0;
 function irTela(resposta){
-    nota += resposta;
-    localStorage.setItem("nota", nota);
-    window.location.href = "15pergunta.html";
+    nota =+ resposta;
+    notafinal =  nota / 15;
+    if(notafinal < 6){
+        console.log("A nota é menor que 60%");
+        window.location.href = "TelaFinal60menos.html";
+    }
 }
 
 function mostrarNota(){
 
-    nota = nota / 15;
     console.log("A nota é: " + nota);
 
 }
