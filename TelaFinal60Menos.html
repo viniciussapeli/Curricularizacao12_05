@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/geral.css">
-    <link rel="stylesheet" href="../CSS/TelasFinais.css">
+    <link rel="stylesheet" href="CSS/geral.css">
+    <link rel="stylesheet" href="CSS/TelasFinais.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <title>1° Pergunta</title>
+    <title>Final</title>
 </head>
 <body>
     <header>
         <div>
-            <a href="TelaInicial.html" class="icons"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="index.html" class="icons"><i class="fa fa-home" aria-hidden="true"></i></a>
             <p>Tela inicial</p>
         </div>
         <div>
@@ -20,8 +20,18 @@
             <p>Informações do aluno</p>    
         </div>
     </header>
-    <main>
-        <img src="../Images/TelasFinais/PatoErro.png" alt="FinalPior">
-    </main>
+    <div class="background"></div>
+    <a href="index.html" class="botao-voltar">
+            Voltar ao início
+    </a>
+    <script>
+        let nota = Number(localStorage.getItem("nota")) || 0;
+        function mostrarNota(){
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
+    </script>
 </body>
 </html>
