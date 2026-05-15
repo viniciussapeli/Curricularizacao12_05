@@ -30,17 +30,28 @@
         <div class="respostas">
             <img class="image" src="../Images/P10/BrusqueVelha.jpg" alt="Brusque Velha">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">São Luís Gonzaga</button>
-                <button class="respostas" onclick="irTela()">Joinville</button>
-                <button class="respostas" onclick="irTela()">Navegantes</button>
-                <button class="respostas" onclick="irTela()">Vale Mirim</button>
+                <button class="respostas" onclick="irTela(1)">São Luís Gonzaga</button>
+                <button class="respostas" onclick="irTela(0)">Joinville</button>
+                <button class="respostas" onclick="irTela(0)">Navegantes</button>
+                <button class="respostas" onclick="irTela(0)">Vale Mirim</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+    let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "11pergunta.html";
 }
+function mostrarNota(){
+
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>

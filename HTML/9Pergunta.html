@@ -30,17 +30,28 @@
         <div class="respostas">
             <img class="image" src="../Images/P9/Rio.png" alt="Rio">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Rio Nilo</button>
-                <button class="respostas" onclick="irTela()">Rio Amazonas</button>
-                <button class="respostas" onclick="irTela()">Rio São Francisco</button>
-                <button class="respostas" onclick="irTela()">Rio Itajaí Mirim</button>
+                <button class="respostas" onclick="irTela(0)">Rio Nilo</button>
+                <button class="respostas" onclick="irTela(0)">Rio Amazonas</button>
+                <button class="respostas" onclick="irTela(0)">Rio São Francisco</button>
+                <button class="respostas" onclick="irTela(1)">Rio Itajaí Mirim</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+    let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "10pergunta.html";
 }
+function mostrarNota(){
+
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>

@@ -30,17 +30,30 @@
         <div class="respostas">
             <img class="image" src="../Images/P15/altovale.png" alt="Vale do Itajaí">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Vale do Itajaí</button>
-                <button class="respostas" onclick="irTela()">Serrana</button>
-                <button class="respostas" onclick="irTela()">Grande Florianópolis</button>
-                <button class="respostas" onclick="irTela()">Emirados Árabes</button>
+                <button class="respostas" onclick="irTela(1)">Vale do Itajaí</button>
+                <button class="respostas" onclick="irTela(0)">Serrana</button>
+                <button class="respostas" onclick="irTela(0)">Grande Florianópolis</button>
+                <button class="respostas" onclick="irTela(0)">Emirados Árabes</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
-    window.location.href = "3pergunta.html";
+   let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta;
+    localStorage.setItem("nota", nota);
+    window.location.href = "15pergunta.html";
 }
+
+function mostrarNota(){
+
+    nota = nota / 15;
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
+
 </script>
 </body>
 </html>

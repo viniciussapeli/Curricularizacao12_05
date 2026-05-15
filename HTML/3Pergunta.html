@@ -38,13 +38,19 @@
         </div>
     </div>
 <script>
+    let nota = Number(localStorage.getItem("nota")) || 0;
 function irTela(resposta){
-    let nota = localStorage.getItem("nota");
     nota += resposta
 
     localStorage.setItem("nota", nota);
     window.location.href = "4pergunta.html";
 }
+function mostrarNota(){
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>
