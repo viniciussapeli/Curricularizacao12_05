@@ -1,10 +1,11 @@
 body{
-        margin: 0;
-        overflow: hidden;
-    }
+    overflow: hidden;
+}
+    .background{
+        height: calc(100vh - 0px);
 
-    img{
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
+        background-image: url('../Images/TelasFinais/PatoMizeravel.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
