@@ -43,8 +43,13 @@ function irTela(resposta){
     nota =+ resposta;
     notafinal =  nota / 15;
     if(notafinal < 6){
-        console.log("A nota é menor que 60%");
         window.location.href = "TelaFinal60menos.html";
+    }
+    if(notafinal > 6 && notafinal < 8){
+        window.location.href = "TelaFinal60a80.html";
+    }
+    if(notafinal > 8){
+        window.location.href = "TelaFinal80mais.html";
     }
 }
 
