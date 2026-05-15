@@ -30,21 +30,28 @@
         </div>
         <div class="pergunta">
             <div class="imagens" style="margin: 4%;">
-                <button  onclick="irTela(1)"><img src="../Images/P7/escultura.jpg" alt="bandeira da Alemanha"></button>
-                <button  onclick="irTela(0)"><img src="../Images/P7/FenarrecoPraça.jpg" alt="bandeira da França"></button>
-                <button  onclick="irTela(0)"><img src="../Images/P7/inglaterra.jpg" alt="bandeira do Japão"></button>
-                <button  onclick="irTela(0)"><img src="../Images/P7/MorroRosário.jpg" alt="bandeira da Argentina"></button>
+                <button  onclick="irTela(1)"><img src="../Images/P7/escultura.jpg" alt="Praça das Esculturas"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P7/FenarrecoPraça.jpg" alt="Arena Multi uso"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P7/inglaterra.jpg" alt="Inglaterra"></button>
+                <button  onclick="irTela(0)"><img src="../Images/P7/MorroRosário.jpg" alt="Morro Rosario"></button>
             </div>
         </div>
     </div>
 <script>
+    let nota = Number(localStorage.getItem("nota")) || 0;
 function irTela(resposta){
-    let nota = localStorage.getItem("nota");
     nota += resposta
 
     localStorage.setItem("nota", nota);
     window.location.href = "8pergunta.html";
 }
+function mostrarNota(){
+
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>

@@ -30,17 +30,28 @@
         <div class="respostas">
             <img class="image" src="../Images/Animalfenarreco.jpg" alt="fenarreco">
             <div style="display: flex">
-                <button class="respostas" onclick="irTela()">Macaco</button>
-                <button class="respostas" onclick="irTela()">Jacaré</button>
-                <button class="respostas" onclick="irTela()">Marreco</button>
-                <button class="respostas" onclick="irTela()">Abelha</button>
+                <button class="respostas" onclick="irTela(0)">Macaco</button>
+                <button class="respostas" onclick="irTela(0)">Jacaré</button>
+                <button class="respostas" onclick="irTela(1)">Marreco</button>
+                <button class="respostas" onclick="irTela(0)">Abelha</button>
             </div>
         </div>
     </div>
 <script>
-function irTela(){
+    let nota = Number(localStorage.getItem("nota")) || 0;
+function irTela(resposta){
+    nota += resposta
+
+    localStorage.setItem("nota", nota);
     window.location.href = "15pergunta.html";
 }
+function mostrarNota(){
+
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
 </script>
 </body>
 </html>
