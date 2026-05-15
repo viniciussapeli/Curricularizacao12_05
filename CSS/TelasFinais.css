@@ -1,11 +1,24 @@
 body{
     overflow: hidden;
 }
-    .background{
-        height: calc(100vh - 0px);
-
-        background-image: url('../Images/TelasFinais/PatoMizeravel.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+.background{
+    height: calc(100vh - 0px);
+    background-image: url('../Images/TelasFinais/PatoMizeravel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.FinalMedio{
+    height: calc(100vh - 0px);
+    background-image: url('../Images/TelasFinais/PatoMedia.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#FinalBom{
+    height: calc(100vh - 0px);
+    background-image: url('../Images/TelasFinais/PatoBom.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
