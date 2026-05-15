@@ -40,8 +40,9 @@
 <script>
    let nota = Number(localStorage.getItem("nota")) || 0;
 function irTela(resposta){
-    nota =+ resposta;
-    notafinal =  nota / 15;
+    nota += resposta;
+    notafinal =  (nota / 15) * 10;
+    console.log("A nota final é: " + notafinal);
     if(notafinal < 6){
         window.location.href = "TelaFinal60menos.html";
     }

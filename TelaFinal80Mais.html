@@ -24,5 +24,14 @@
     <a href="index.html" class="botao-voltar">
             Voltar ao início
     </a>
+    <script>
+        let nota = Number(localStorage.getItem("nota")) || 0;
+        function mostrarNota(){
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
+    </script>
 </body>
 </html>

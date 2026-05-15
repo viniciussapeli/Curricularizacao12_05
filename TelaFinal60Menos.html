@@ -20,9 +20,18 @@
             <p>Informações do aluno</p>    
         </div>
     </header>
-    <div class="FinalMedio"></div>
+    <div class="background"></div>
     <a href="index.html" class="botao-voltar">
             Voltar ao início
     </a>
+    <script>
+        let nota = Number(localStorage.getItem("nota")) || 0;
+        function mostrarNota(){
+    console.log("A nota é: " + nota);
+
+}
+
+mostrarNota();
+    </script>
 </body>
 </html>
