@@ -4,21 +4,49 @@ body{
 .background{
     height: calc(100vh - 0px);
     background-image: url('../Images/TelasFinais/PatoMizeravel.jpg');
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 .FinalMedio{
     height: calc(100vh - 0px);
     background-image: url('../Images/TelasFinais/PatoMedia.png');
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
 }
 #FinalBom{
     height: calc(100vh - 0px);
     background-image: url('../Images/TelasFinais/PatoBom.png');
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.botao-voltar{
+    position: absolute;
+
+    bottom: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 15px 30px;
+
+    background-color: #2b8eff;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.botao-voltar:hover{
+    background-color: #2b8eff;
+    transform: translateX(-50%) scale(1.05);
 }
