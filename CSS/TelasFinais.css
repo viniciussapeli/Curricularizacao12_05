@@ -2,25 +2,31 @@ body{
     overflow: hidden;
 }
 .background{
-    height: calc(100vh - 0px);
+    height: calc(100vh - 100px);
     background-image: url('../Images/TelasFinais/PatoMizeravel.jpg');
-    background-size: 100% 100%;
+    background-size: 95% 95%;
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 .FinalMedio{
-    height: calc(100vh - 0px);
+    height: calc(100vh - 100px);
     background-image: url('../Images/TelasFinais/PatoMedia.png');
-    background-size: 100% 100%;
+    background-size: 95% 95%;
     background-position: center;
     background-repeat: no-repeat;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 #FinalBom{
-    height: calc(100vh - 0px);
+    height: calc(100vh - 100px);
     background-image: url('../Images/TelasFinais/PatoBom.png');
-    background-size: 100% 100%;
+    background-size: 95% 95%;
     background-position: center;
     background-repeat: no-repeat;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .botao-voltar{
