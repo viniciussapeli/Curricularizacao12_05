@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/geral.css">
+    <link rel="stylesheet" href="CSS/cssPaginas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/pergunta16.css">
+    <title>16° Pergunta</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html" class="icons"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <p>Tela inicial</p>
+        </div>
+        <div>
+            <a href="TelaInfo.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <p>Informações do aluno</p>    
+        </div>
+    </header>
+
+    <div class="background"></div>
+    <div class="card">
+        <div class="title">
+            <h1>Qual animal combina com o habitat abaixo ?</h1>
+        </div>
+        <div id="areaMar">
+            <img class="image" src="Images/P16/fundo-do-mar.jpg" alt="MAR">
+        </div>
+        <div class="pergunta">
+            <div class="animais">
+            <img class="animal" src="Images/P16/camelo.jpg" alt="camelo" draggable="true" data-correto="false" style="height: 30px; width: 30px;">
+            <img class="animal" src="Images/P16/baleia.jpg" alt="baleia" draggable="true" data-correto="true" style="height: 30px; width: 30px;">
+            <img class="animal" src="Images/P16/galinha.jpg" alt="galinha" draggable="true" data-correto="false" style="height: 30px; width: 30px;">
+            <img class="animal" src="Images/P16/caramujo.jpg" alt="caramujo" draggable="true" data-correto="false" style="height: 30px; width: 30px;">
+            </div>
+        </div>
+        <p id="resultado"></p>
+        <button id="confirmar" disabled>
+             Confirmar resposta
+        </button>
+    </div>
+<script>
+    const animais = document.querySelectorAll(".animal");
+    const areaMar = document.getElementById("areaMar");
+    const resultado = document.getElementById("resultado");
+    const confirmar = document.getElementById("confirmar");
+
+    let animalEscolhido = null;
+
+    // Permite arrastar os animais
+    animais.forEach(function(animal) {
+
+        animal.addEventListener("dragstart", function(event) {
+            animalEscolhido = animal;
+
+            event.dataTransfer.setData("text/plain", animal.alt);
+        });
+
+    });
+
+    // Permite soltar o animal sobre o mar
+    areaMar.addEventListener("dragover", function(event) {
+        event.preventDefault();
+    });
+
+    areaMar.addEventListener("drop", function(event) {
+        event.preventDefault();
+
+        if (animalEscolhido === null) {
+            return;
+        }
+
+        // Mostra o animal escolhido sobre o mar
+        let imagem = animalEscolhido.cloneNode(true);
+        imagem.removeAttribute("class");
+        imagem.removeAttribute("draggable");
+        imagem.style.width = "120px";
+        imagem.style.height = "auto";
+        imagem.style.position = "absolute";
+        imagem.style.left = "50%";
+        imagem.style.top = "50%";
+        imagem.style.transform = "translate(-50%, -50%)";
+        imagem.style.pointerEvents = "none";
+
+        // Remove a escolha anterior
+        const anterior = areaMar.querySelector(".animal-solto");
+        if (anterior) {
+            anterior.remove();
+        }
+
+        imagem.classList.add("animal-solto");
+        areaMar.appendChild(imagem);
+
+        confirmar.disabled = false;
+        resultado.textContent = "Animal escolhido: " + animalEscolhido.alt;
+    });
+
+    // Registra a resposta quando o aluno confirmar
+    confirmar.addEventListener("click", function() {
+
+        if (animalEscolhido === null) {
+            return;
+        }
+
+        const acertou =
+            animalEscolhido.dataset.correto === "true";
+
+        // Recupera os resultados anteriores
+        let respostas = JSON.parse(
+            localStorage.getItem("respostas")
+        ) || {};
+
+        // Registra a resposta da questão 16
+        respostas["16"] = acertou ? 1 : 0;
+
+        localStorage.setItem(
+            "respostas",
+            JSON.stringify(respostas)
+        );
+
+        if (acertou) {
+            resultado.textContent = "Parabéns! Você acertou!";
+            resultado.style.color = "green";
+        } else {
+            resultado.textContent = "Resposta incorreta!";
+            resultado.style.color = "red";
+        }
+
+        // Impede alterar a resposta após confirmar
+        confirmar.disabled = true;
+        animais.forEach(function(animal) {
+            animal.draggable = false;
+        });
+
+        // Segue para a próxima página após confirmar
+        // Ajuste o nome conforme a ordem do seu questionário
+        setTimeout(function() {
+            window.location.href = "15Pergunta.html";
+        }, 1200);
+
+    });
+</script>
+</body>
+</html>

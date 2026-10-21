@@ -1,0 +1,29 @@
+#areaMar {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+#areaMar .image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.animal {
+    width: 100px;
+    height: 80px;
+    object-fit: contain;
+    cursor: grab;
+}
+
+#areaMar .animal-solto {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    top: 40%;
+    left: 40%;
+    object-fit: contain;
+    cursor: grab;
+}
