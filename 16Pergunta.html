@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="CSS/geral.css">
     <link rel="stylesheet" href="CSS/cssPaginas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="CSS/pergunta16.css">
+    <link rel="stylesheet" href="CSS/cssPerguntas/pergunta16.css">
     <title>16° Pergunta</title>
 </head>
 <body>
@@ -32,10 +32,10 @@
         </div>
         <div class="pergunta">
             <div class="animais">
-            <img class="animal" src="Images/P16/camelo.jpg" alt="camelo" draggable="true" data-correto="false" style="height: 30px; width: 30px;">
-            <img class="animal" src="Images/P16/baleia.jpg" alt="baleia" draggable="true" data-correto="true" style="height: 30px; width: 30px;">
-            <img class="animal" src="Images/P16/galinha.jpg" alt="galinha" draggable="true" data-correto="false" style="height: 30px; width: 30px;">
-            <img class="animal" src="Images/P16/caramujo.jpg" alt="caramujo" draggable="true" data-correto="false" style="height: 30px; width: 30px;">
+            <img class="animal" src="Images/P16/camelo.jpg" alt="camelo" draggable="true" data-correto="false">
+            <img class="animal" src="Images/P16/baleia.jpg" alt="baleia" draggable="true" data-correto="true">
+            <img class="animal" src="Images/P16/galinha.jpg" alt="galinha" draggable="true" data-correto="false">
+            <img class="animal" src="Images/P16/caramujo.jpg" alt="caramujo" draggable="true" data-correto="false">
             </div>
         </div>
         <p id="resultado"></p>
@@ -51,7 +51,6 @@
 
     let animalEscolhido = null;
 
-    // Permite arrastar os animais
     animais.forEach(function(animal) {
 
         animal.addEventListener("dragstart", function(event) {
@@ -62,7 +61,6 @@
 
     });
 
-    // Permite soltar o animal sobre o mar
     areaMar.addEventListener("dragover", function(event) {
         event.preventDefault();
     });
@@ -74,7 +72,6 @@
             return;
         }
 
-        // Mostra o animal escolhido sobre o mar
         let imagem = animalEscolhido.cloneNode(true);
         imagem.removeAttribute("class");
         imagem.removeAttribute("draggable");
@@ -99,7 +96,6 @@
         resultado.textContent = "Animal escolhido: " + animalEscolhido.alt;
     });
 
-    // Registra a resposta quando o aluno confirmar
     confirmar.addEventListener("click", function() {
 
         if (animalEscolhido === null) {
@@ -109,12 +105,10 @@
         const acertou =
             animalEscolhido.dataset.correto === "true";
 
-        // Recupera os resultados anteriores
         let respostas = JSON.parse(
             localStorage.getItem("respostas")
         ) || {};
 
-        // Registra a resposta da questão 16
         respostas["16"] = acertou ? 1 : 0;
 
         localStorage.setItem(
@@ -130,16 +124,13 @@
             resultado.style.color = "red";
         }
 
-        // Impede alterar a resposta após confirmar
         confirmar.disabled = true;
         animais.forEach(function(animal) {
             animal.draggable = false;
         });
 
-        // Segue para a próxima página após confirmar
-        // Ajuste o nome conforme a ordem do seu questionário
         setTimeout(function() {
-            window.location.href = "15Pergunta.html";
+            window.location.href = "17Pergunta.html";
         }, 1200);
 
     });

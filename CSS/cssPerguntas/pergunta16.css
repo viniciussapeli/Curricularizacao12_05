@@ -12,8 +12,8 @@
 }
 
 .animal {
-    width: 100px;
-    height: 80px;
+    width: 20%;
+    height: 20% ;
     object-fit: contain;
     cursor: grab;
 }

@@ -1,0 +1,55 @@
+.animais {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    flex-wrap: wrap;
+    margin: 2% 0;
+}
+
+.animal {
+    width: 20%;
+    height: 20%;
+    object-fit: contain;
+    cursor: grab;
+}
+
+.espacos {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    margin: 3% 0;
+}
+
+.espaco {
+    width: 150px;
+    height: 130px;
+    border: 2px dashed #777;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    color: #333;
+    gap: 8px;
+}
+
+.espaco span {
+    font-weight: bold;
+}
+
+.espaco .animal {
+    width: 100px;
+    height: 85px;
+}
+
+.espaco.sobre {
+    border-color: #2584d8;
+    background-color: #e6f3ff;
+}
+
+#resultado {
+    text-align: center;
+    font-weight: bold;
+    margin: 15px;
+}

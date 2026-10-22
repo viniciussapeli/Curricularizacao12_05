@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/geral.css">
+    <link rel="stylesheet" href="CSS/cssPaginas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/cssPerguntas/pergunta17.css">
+    <title>17° Pergunta</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html" class="icons"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <p>Tela inicial</p>
+        </div>
+        <div>
+            <a href="TelaInfo.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <p>Informações do aluno</p>    
+        </div>
+    </header>
+
+    <div class="background"></div>
+    
+    <div class="card">
+
+        <div class="title">
+            <h1 style="margin: 1%;"> Compare o tamanho dos animais a seguir </h1>
+        </div>
+
+    <div class="animais" id="animais">
+
+        <img class="animal"src="Images/P17/elefante.jpg" alt="elefante" draggable="true" data-ordem="3">
+        <img class="animal" src="Images/P17/formiga.jpg" alt="formiga" draggable="true" data-ordem="1">
+        <img class="animal" src="Images/P17/ovelha.jpg" alt="ovelha" draggable="true" data-ordem="2">
+
+    </div>
+
+    <div class="espacos">
+        <div class="espaco" data-posicao="1">
+            <span>1º - Menor</span>
+        </div>
+
+        <div class="espaco" data-posicao="2">
+            <span>2º - Médio</span>
+        </div>
+
+        <div class="espaco" data-posicao="3">
+            <span>3º - Maior</span>
+        </div>
+    </div>
+
+    <p id="resultado"></p>
+
+    <button id="confirmar" disabled>
+        Confirmar resposta
+    </button>
+    <script>
+
+        // Seleciona todas as imagens que possuem a classe "animal"
+        const animais = document.querySelectorAll(".animal");
+
+        // Seleciona todos os espaços onde os animais podem ser colocados
+        const espacos = document.querySelectorAll(".espaco");
+
+        // Seleciona a área inicial onde os animais ficam antes de serem arrastados
+        const areaAnimais = document.getElementById("animais");
+
+        // Seleciona o elemento HTML que exibirá mensagens para o usuário
+        const resultado = document.getElementById("resultado");
+
+        // Seleciona o botão usado para confirmar a resposta
+        const confirmar = document.getElementById("confirmar");
+
+        // Cria uma variável para guardar o animal que está sendo arrastado
+        // null significa que nenhum animal foi selecionado inicialmente
+        let animalEscolhido = null;
+
+        // Percorre todas as imagens dos animais, uma por uma
+        animais.forEach(animal => {
+
+            // Adiciona um evento que é executado quando o usuário começa a arrastar a imagem
+            animal.addEventListener("dragstart", function (event) {
+                // Guarda na variável a imagem que está sendo arrastada
+                // "this" representa a imagem que recebeu o evento
+                animalEscolhido = this;
+                // Guarda o texto alternativo da imagem durante o arraste
+                // event.dataTransfer permite transferir dados durante o arrastar e soltar
+                event.dataTransfer.setData("text/plain", this.alt);
+            });
+        });
+
+        // Percorre todos os espaços disponíveis para receber os animais
+        espacos.forEach(espaco => {
+
+            // Executa quando o animal arrastado passa por cima de um espaço
+            espaco.addEventListener("dragover", function (event) {
+
+                // Impede o comportamento padrão do navegador
+                // Isso permite que o elemento aceite o animal solto
+                event.preventDefault();
+
+                // Adiciona a classe CSS "sobre" ao espaço
+                // Ela pode mudar a aparência do espaço enquanto o animal está sobre ele
+                this.classList.add("sobre");
+            });
+
+            // Executa quando o animal deixa de estar sobre o espaço
+            espaco.addEventListener("dragleave", function () {
+
+                // Remove a classe CSS "sobre"
+                // Assim, o espaço volta à aparência normal
+                this.classList.remove("sobre");
+            });
+
+            // Executa quando o usuário solta o animal dentro do espaço
+            espaco.addEventListener("drop", function (event) {
+
+                // Impede o comportamento padrão do navegador
+                event.preventDefault();
+
+                // Remove o destaque visual do espaço
+                this.classList.remove("sobre");
+
+                // Verifica se existe um animal sendo arrastado
+                // Se não existir, encerra esta função com "return"
+                if (!animalEscolhido) return;
+
+                // Procura uma imagem com a classe "animal" dentro do espaço atual
+                // Se encontrar, guarda essa imagem; caso contrário, retorna null
+                const animalAnterior = this.querySelector(".animal");
+
+                // Verifica se o espaço já contém um animal
+                if (animalAnterior) {
+
+                    // Verifica se o animal que está sendo arrastado
+                    // veio de outro espaço de resposta
+                    if (animalEscolhido.parentElement.classList.contains("espaco")) {
+
+                        // Coloca o animal que já estava no espaço
+                        // no espaço de onde veio o animal arrastado
+                        // Dessa forma, os dois animais trocam de lugar
+                        animalEscolhido.parentElement.appendChild(animalAnterior);
+
+                    } else {
+
+                        // Se o animal arrastado veio da área inicial,
+                        // devolve o animal anterior para essa área
+                        areaAnimais.appendChild(animalAnterior);
+                    }
+                }
+
+                // Coloca o animal arrastado dentro do espaço selecionado
+                // "this" representa o espaço que recebeu o evento "drop"
+                this.appendChild(animalEscolhido);
+
+                // Limpa a variável porque o arraste terminou
+                animalEscolhido = null;
+
+                // Limpa a mensagem que estava sendo exibida na tela
+                resultado.textContent = "";
+
+                // Verifica se todos os espaços estão preenchidos
+                // Array.from transforma a lista de espaços em um array
+                // every verifica se todos os espaços atendem à condição
+                // querySelector(".animal") procura um animal dentro de cada espaço
+                // ! inverte o resultado: true quando falta algum animal
+                confirmar.disabled = !Array.from(espacos).every(
+                    espaco => espaco.querySelector(".animal")
+                );
+
+                // Se faltar algum animal, o botão fica desabilitado
+                // Se todos estiverem preenchidos, o botão é habilitado
+            });
+        });
+
+        // Adiciona um evento à área inicial dos animais
+        // Executa quando algo é arrastado sobre essa área
+        areaAnimais.addEventListener("dragover", function (event) {
+
+            // Permite que a área inicial receba um elemento arrastado
+            event.preventDefault();
+        });
+
+        // Executa quando o usuário solta um animal na área inicial
+        areaAnimais.addEventListener("drop", function (event) {
+
+            // Impede o comportamento padrão do navegador
+            event.preventDefault();
+
+            // Verifica se existe um animal sendo arrastado
+            if (animalEscolhido) {
+
+                // Coloca o animal de volta na área inicial
+                // Isso permite retirar um animal de um espaço de resposta
+                areaAnimais.appendChild(animalEscolhido);
+
+                // Limpa a variável após terminar o movimento
+                animalEscolhido = null;
+
+                // Apaga qualquer mensagem anterior
+                resultado.textContent = "";
+
+                // Verifica novamente se todos os espaços estão preenchidos
+                // Desabilita o botão se algum espaço estiver vazio
+                confirmar.disabled = !Array.from(espacos).every(
+                    espaco => espaco.querySelector(".animal")
+                );
+            }
+        });
+
+        // Adiciona um evento de clique ao botão de confirmação
+        confirmar.addEventListener("click", function () {
+
+            // Assume inicialmente que a resposta está correta
+            let acertou = true;
+
+            // Percorre cada espaço para verificar o animal colocado nele
+            espacos.forEach(espaco => {
+
+                // Busca a imagem do animal que está dentro do espaço atual
+                const animal = espaco.querySelector(".animal");
+
+                // Verifica duas condições:
+                // 1. Se não existe animal no espaço
+                // 2. Se a ordem correta do animal é diferente da posição do espaço
+                if (!animal ||
+                    animal.dataset.ordem !== espaco.dataset.posicao) {
+
+                    // Se alguma condição for verdadeira,
+                    // a resposta completa é considerada incorreta
+                    acertou = false;
+                }
+            });
+
+            // Mostra uma mensagem conforme o resultado da verificação
+            // Se acertou for true, mostra a primeira mensagem
+            // Caso contrário, mostra a segunda mensagem
+            resultado.textContent = acertou
+                ? "Parabéns! Você colocou os animais na ordem correta!"
+                : "Ainda não! Tente organizar do menor para o maior.";
+
+            // Recupera as respostas salvas no localStorage
+            // JSON.parse converte o texto JSON em um objeto JavaScript
+            // Se ainda não houver respostas salvas, utiliza um objeto vazio {}
+            let respostas = JSON.parse(localStorage.getItem("respostas")) || {};
+
+            // Salva 1 ponto se a resposta estiver correta
+            // Caso contrário, salva 0 pontos para a questão 17
+            respostas["17"] = acertou ? 1 : 0;
+
+            // Converte o objeto respostas em texto JSON
+            // e salva os dados no localStorage com a chave "respostas"
+            localStorage.setItem("respostas", JSON.stringify(respostas));
+
+            setTimeout(() => {
+                window.location.href = "15Pergunta.html";
+            }, 1200);
+        });
+        
+    </script>
+</body>
+</html>
